@@ -1,0 +1,1 @@
+export const APIkey: string = "1ef1e20d";
