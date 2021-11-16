@@ -1,8 +1,7 @@
 @import "../../common/colours.scss";
 
 .header {
-    font-family: 'Sora', sans-serif;
-    background-color: $secondary-colour;
+    background: $secondary-colour;
     height: 4rem;
     padding: 0rem 2.5rem;
     display: flex;
