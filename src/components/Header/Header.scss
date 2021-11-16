@@ -1,0 +1,27 @@
+@import "../../common/colours.scss";
+
+.header {
+    font-family: 'Sora', sans-serif;
+    background-color: $secondary-colour;
+    height: 4rem;
+    padding: 0rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: $font-primary;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.user-image,
+.user-image img {
+    width: 2.5rem;
+}
+
+.user-image img {
+    padding-top: 0.25rem;
+    filter: invert(100%);
+}
