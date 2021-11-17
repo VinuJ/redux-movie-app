@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Params } from "react-router-dom";
 import MovieApi from "../../common/apis/MovieApi";
 import { APIkey } from "../../common/apis/MovieApiKey";
 import { RootState } from "../store";
@@ -6,6 +7,7 @@ import { RootState } from "../store";
 interface State {
   movies: Object;
   shows: Object;
+  details: Object;
 }
 
 const movieText: string = "Harry";
@@ -31,9 +33,20 @@ export const fetchAsyncShows = createAsyncThunk(
   }
 );
 
+export const fetchAsyncDetails = createAsyncThunk(
+  "movies/fetchAsyncDetails",
+  async (id: any) => {
+    const response = await MovieApi.get(
+      `?i=${id}&plot=full&apikey=${APIkey}`
+    );
+    return response.data;
+  }
+);
+
 const initialState: State = {
   movies: {},
   shows: {},
+  details: {}
 };
 
 const movieSlice = createSlice({
@@ -63,10 +76,16 @@ const movieSlice = createSlice({
       console.log("Fetched Successfully");
       return { ...state, shows: payload };
     });
+
+    builder.addCase(fetchAsyncDetails.fulfilled, (state: State, { payload }) => {
+      console.log("Fetched Successfully");
+      return { ...state, details: payload };
+    });
   },
 });
 
 export const { addMovies } = movieSlice.actions;
 export const getAllMovies = (state: RootState) => state.movies.movies;
 export const getAllShows = (state: RootState) => state.movies.shows;
+export const getDetails = (state: RootState) => state.movies.details;
 export default movieSlice.reducer;
