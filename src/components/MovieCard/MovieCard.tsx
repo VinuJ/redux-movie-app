@@ -19,7 +19,7 @@ const MovieCard = (props: Props) => {
   const data = props.data;
   return (
     <div className="card-item">
-      <Link to={`/movie/${data.imdbID}`} >
+      <Link to={`/redux-movie-app/movie/${data.imdbID}`} >
       <div className="card-inner">
         <div className="card-top">
           <img src={data.Poster} alt={data.Title} />
