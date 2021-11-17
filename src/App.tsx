@@ -13,9 +13,9 @@ function App() {
       <Header />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movie/:imdbID" element={<MovieDetail />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="/redux-movie-app/" element={<Home />} />
+          <Route path="/redux-movie-app/movie/:imdbID" element={<MovieDetail />} />
+          <Route path="/redux-movie-app/*" element={<PageNotFound />} />
         </Routes>
       </div>
       <Footer />
