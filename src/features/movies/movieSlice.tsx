@@ -7,10 +7,10 @@ import { RootState } from "../store";
 interface State {
   movies: Object;
   shows: Object;
-  details: Object;
+  details: any;
 }
 
-const movieText: string = "Harry";
+const movieText: string = "Cars";
 const showText: string = "Cars";
 
 export const fetchAsyncMovies = createAsyncThunk(
