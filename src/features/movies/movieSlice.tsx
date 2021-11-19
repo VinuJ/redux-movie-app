@@ -10,12 +10,10 @@ interface State {
   details: any;
 }
 
-const movieText: string = "Cars";
-const showText: string = "Cars";
 
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async () => {
+  async (movieText: string = 'Cars') => {
     const response = await MovieApi.get(
       `?s=${movieText}&type=movie&apikey=${APIkey}`
     );
@@ -25,7 +23,7 @@ export const fetchAsyncMovies = createAsyncThunk(
 
 export const fetchAsyncShows = createAsyncThunk(
   "movies/fetchAsyncShows",
-  async () => {
+  async (showText: string = 'Cars') => {
     const response = await MovieApi.get(
       `?s=${showText}&type=series&apikey=${APIkey}`
     );
