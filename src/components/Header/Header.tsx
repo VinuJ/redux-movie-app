@@ -5,6 +5,8 @@ import "./Header.scss";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
+import image2 from "../../images/image2.png";
+
 import {
   fetchAsyncMovies,
   fetchAsyncShows,
@@ -15,7 +17,10 @@ const Header = () => {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(input);
+
+    if (input === "") {
+      return alert("Please enter a search term!")
+    }
 
     dispatch(fetchAsyncMovies(input));
     dispatch(fetchAsyncShows(input));
@@ -26,7 +31,7 @@ const Header = () => {
     <div className="header">
       <div className="logo">
         <Link id="logo-link" to="/redux-movie-app/">
-          Movie App
+          <img id='logo-image' src={image2} alt="logo" />
         </Link>
       </div>
       <div className="search-bar">

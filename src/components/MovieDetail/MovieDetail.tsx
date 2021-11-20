@@ -36,52 +36,52 @@ const MovieDetail = () => {
           <div className="left-section">
             <div className="movie-title">{data.Title}</div>
             <div className="movie-stats">
-              <span>
-                IMDB Rating <FontAwesomeIcon id="star" icon={faStar} /> :{" "}
+              <div className="stat-box">
+                IMDB Rating<FontAwesomeIcon id="star" icon={faStar} />
                 {data.imdbRating}
-              </span>
-              <span>
-                IMDB Votes <FontAwesomeIcon id="thumbs-up" icon={faThumbsUp} />{" "}
-                : {data.imdbVotes}
-              </span>
-              <span>
-                Runtime <FontAwesomeIcon id="film" icon={faFilm} /> :{" "}
+              </div>
+              <div className="stat-box">
+                IMDB Votes<FontAwesomeIcon id="thumbs-up" icon={faThumbsUp} />
+                {data.imdbVotes}
+              </div>
+              <div className="stat-box">
+                Runtime<FontAwesomeIcon id="film" icon={faFilm} />
                 {data.Runtime}
-              </span>
-              <span>
-                Year <FontAwesomeIcon id="calendar" icon={faCalendar} /> :{" "}
+              </div>
+              <div className="stat-box">
+                Year <FontAwesomeIcon id="calendar" icon={faCalendar} />
                 {data.Year}
-              </span>
+              </div>
             </div>
             <div className="movie-plot">{data.Plot}</div>
             <div className="movie-info">
               <div>
                 <span>Director</span>
-                <span>{data.Director}</span>
+                <div>{data.Director}</div>
               </div>
             </div>
             <div className="movie-info">
               <div>
                 <span>Stars</span>
-                <span>{data.Actors}</span>
+                <div>{data.Actors}</div>
               </div>
             </div>
             <div className="movie-info">
               <div>
                 <span>Genres</span>
-                <span>{data.Genre}</span>
+                <div>{data.Genre}</div>
               </div>
             </div>
             <div className="movie-info">
               <div>
                 <span>Languages</span>
-                <span>{data.Language}</span>
+                <div>{data.Language}</div>
               </div>
             </div>
             <div className="movie-info">
               <div>
                 <span>Awards</span>
-                <span>{data.Awards}</span>
+                <div>{data.Awards}</div>
               </div>
             </div>
           </div>

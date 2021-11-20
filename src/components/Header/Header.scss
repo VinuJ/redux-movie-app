@@ -3,7 +3,7 @@
 .header {
   background: $secondary-colour;
   height: 4rem;
-  padding: 0rem 2.5rem;
+  padding: 0rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +13,10 @@
   color: $font-primary;
   font-size: 1rem;
   font-weight: 600;
+}
+
+#logo-image {
+  width: 4.5rem;
 }
 
 #logo-link {
@@ -39,7 +43,7 @@
     justify-content: center;
     width: 70%;
     input {
-      font-size: 1.2rem;
+      font-size: 1rem;
       width: 100%;
       padding: 2px 2px 2px 5px;
       outline: none;

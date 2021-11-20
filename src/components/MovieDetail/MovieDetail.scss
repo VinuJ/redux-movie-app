@@ -1,5 +1,5 @@
 @import "../../common/colours.scss";
-$breakpoint: 600px;
+$breakpoint: 800px;
 
 .movie-section {
     display: flex;
@@ -18,12 +18,18 @@ $breakpoint: 600px;
 }
 
 .movie-stats {
-    padding-left: 3px;
+    // border: 1px solid cyan;
     margin-top: 1.5rem;
     color: $font-secondary;
     display: flex;
-    span {
-        margin-right: 1.5rem;
+    justify-content: flex-start;
+    gap: 1rem;
+    .stat-box {
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
     }
     
 }
@@ -43,7 +49,9 @@ $breakpoint: 600px;
     @media screen and (max-width: $breakpoint) {
         display: flex;
         justify-content: space-between;
-        border: solid red;
+    }
+    span {
+        //border: solid red;
     }
 }
 
