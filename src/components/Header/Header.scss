@@ -9,29 +9,8 @@
   align-items: center;
 }
 
-.logo {
-  color: $font-primary;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
 #logo-image {
   width: 4.5rem;
-}
-
-#logo-link {
-  color: $font-primary;
-  text-decoration: none;
-}
-
-.user-image,
-.user-image img {
-  width: 2.5rem;
-}
-
-.user-image img {
-  padding-top: 0.25rem;
-  filter: invert(100%);
 }
 
 .search-bar {
@@ -56,4 +35,14 @@
       }
     }
   }
+}
+
+.user-image,
+.user-image img {
+  width: 2.5rem;
+}
+
+.user-image img {
+  padding-top: 0.25rem;
+  filter: invert(100%);
 }

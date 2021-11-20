@@ -8,12 +8,12 @@ interface State {
   movies: Object;
   shows: Object;
   details: any;
+  loading: boolean;
 }
-
 
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async (movieText: string = 'Cars') => {
+  async (movieText: string = "Mission") => {
     const response = await MovieApi.get(
       `?s=${movieText}&type=movie&apikey=${APIkey}`
     );
@@ -23,7 +23,7 @@ export const fetchAsyncMovies = createAsyncThunk(
 
 export const fetchAsyncShows = createAsyncThunk(
   "movies/fetchAsyncShows",
-  async (showText: string = 'Cars') => {
+  async (showText: string = "Friends") => {
     const response = await MovieApi.get(
       `?s=${showText}&type=series&apikey=${APIkey}`
     );
@@ -34,9 +34,7 @@ export const fetchAsyncShows = createAsyncThunk(
 export const fetchAsyncDetails = createAsyncThunk(
   "movies/fetchAsyncDetails",
   async (id: any) => {
-    const response = await MovieApi.get(
-      `?i=${id}&plot=full&apikey=${APIkey}`
-    );
+    const response = await MovieApi.get(`?i=${id}&plot=full&apikey=${APIkey}`);
     return response.data;
   }
 );
@@ -44,7 +42,8 @@ export const fetchAsyncDetails = createAsyncThunk(
 const initialState: State = {
   movies: {},
   shows: {},
-  details: {}
+  details: {},
+  loading: false,
 };
 
 const movieSlice = createSlice({
@@ -52,18 +51,19 @@ const movieSlice = createSlice({
   initialState: initialState,
   reducers: {
     removeDetails: (state) => {
-      state.details = {}
+      state.details = {};
     },
   },
   // 'Builder callback' approach required for TypeScript to correctly infer types
   extraReducers: (builder) => {
-    builder.addCase(fetchAsyncMovies.pending, () => {
+    builder.addCase(fetchAsyncMovies.pending, (state: State) => {
       console.log("Pending");
+      return { ...state, loading: true };
     });
 
     builder.addCase(fetchAsyncMovies.fulfilled, (state: State, { payload }) => {
       console.log("Fetched Successfully");
-      return { ...state, movies: payload };
+      return { ...state, movies: payload, loading: false };
     });
 
     builder.addCase(fetchAsyncMovies.rejected, () => {
@@ -72,13 +72,16 @@ const movieSlice = createSlice({
 
     builder.addCase(fetchAsyncShows.fulfilled, (state: State, { payload }) => {
       console.log("Fetched Successfully");
-      return { ...state, shows: payload };
+      return { ...state, shows: payload, loading: false };
     });
 
-    builder.addCase(fetchAsyncDetails.fulfilled, (state: State, { payload }) => {
-      console.log("Fetched Successfully");
-      return { ...state, details: payload };
-    });
+    builder.addCase(
+      fetchAsyncDetails.fulfilled,
+      (state: State, { payload }) => {
+        console.log("Fetched Successfully");
+        return { ...state, details: payload };
+      }
+    );
   },
 });
 
@@ -86,4 +89,5 @@ export const { removeDetails } = movieSlice.actions;
 export const getAllMovies = (state: RootState) => state.movies.movies;
 export const getAllShows = (state: RootState) => state.movies.shows;
 export const getDetails = (state: RootState) => state.movies.details;
+export const getLoadingState = (state: RootState) => state.movies.loading;
 export default movieSlice.reducer;

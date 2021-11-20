@@ -1,5 +1,9 @@
 @import "../../common/colours.scss";
 
+.loading-card {    
+    
+}
+
 .card-item {
     background: $secondary-colour;
     cursor: pointer;
@@ -31,4 +35,8 @@
         font-weight: 400;
         margin-bottom: 0.5rem;
     }   
+}
+
+#no-image {
+    width: 100%;
 }

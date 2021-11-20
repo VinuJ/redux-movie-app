@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MovieDetail.scss";
+import noImage from "../../images/noImage.png"
 
 const MovieDetail = () => {
   const { imdbID } = useParams();
@@ -87,7 +88,11 @@ const MovieDetail = () => {
           </div>
           <div className="right-section">
             <div className="movie-image">
+            {data.Poster == "N/A" ? (
+              <img id="no-image" src={noImage} alt="No image" />
+            ) : (
               <img src={data.Poster} alt={data.Title} />
+            )}
             </div>
           </div>
         </>
