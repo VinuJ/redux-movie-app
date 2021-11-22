@@ -29,7 +29,7 @@ const MovieCard = (props: Props) => {
       ) : (
         <>
           <Link to={`/redux-movie-app/movie/${data.imdbID}`}>
-            <div className="card-inner">
+            <div className="card-inner" onClick={() => window.scrollTo(0,0)}>
               <div className="card-top">
                 {data.Poster == "N/A" ? (
                   <img id="no-image" src={noImage} alt="No image" />
