@@ -31,7 +31,7 @@ const MovieDetail = () => {
   return (
     <div key={data.Title} className="movie-section">
       {Object.keys(data).length === 0 ? (
-        <div>Fetching...</div>
+        <div className="fetching">Fetching...</div>
       ) : (
         <>
           <div className="left-section">
