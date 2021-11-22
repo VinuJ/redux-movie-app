@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { getAllMovies, getAllShows } from "../../features/movies/movieSlice";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss";
-import { settings } from "../../settings"
+import { settings } from "../../settings";
 
 interface Data {
   Poster: string;
@@ -43,7 +43,7 @@ const MovieListing = () => {
       <div className="movie-list">
         <h2>Movies</h2>
         <div className="movie-container">
-          <Slider {...settings}>{renderMovies}</Slider>
+          <Slider {...settings}>{renderShows}</Slider>
         </div>
       </div>
 
