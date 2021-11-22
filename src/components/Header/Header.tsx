@@ -14,6 +14,7 @@ import {
 const Header = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+  const inputField = document.querySelector("#input");
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,6 +26,9 @@ const Header = () => {
     dispatch(fetchAsyncMovies(input));
     dispatch(fetchAsyncShows(input));
     setInput("");
+    if (inputField instanceof HTMLElement) {
+      inputField.blur();
+    }
   };
 
   return (
@@ -37,6 +41,7 @@ const Header = () => {
       <div className="search-bar">
         <form onSubmit={submitHandler}>
           <input
+            id="input"
             type="text"
             value={input}
             placeholder="Search..."
