@@ -1,14 +1,14 @@
 @import "../../common/colours.scss";
 
 
-// @keyframes fadeInAnimation {
-//     0% {
-//         opacity: 0;
-//     }
-//     100% {
-//         opacity: 1;
-//      }
-// }
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
 
 .card-item {
     background: $secondary-colour;
@@ -17,9 +17,9 @@
     min-height: 26rem;
     height: 100%;
     margin: 0.5rem;
-    // animation: fadeInAnimation ease 2s;
-    // animation-iteration-count: 1;
-    // animation-fill-mode: forwards;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     &:hover {
         transform: scale(1.1);
     }

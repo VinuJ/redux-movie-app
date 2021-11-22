@@ -29,7 +29,7 @@ const MovieDetail = () => {
     };
   }, [dispatch, imdbID]);
   return (
-    <div className="movie-section">
+    <div key={data.Title} className="movie-section">
       {Object.keys(data).length === 0 ? (
         <div>Fetching...</div>
       ) : (

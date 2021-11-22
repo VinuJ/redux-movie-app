@@ -1,6 +1,15 @@
 @import "../../common/colours.scss";
 $breakpoint: 800px;
 
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
 .movie-section {
     display: flex;
     justify-content: space-evenly;
@@ -8,6 +17,9 @@ $breakpoint: 800px;
     padding: 3rem 0rem;
     font-weight: 400;
     color: $font-primary;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     @media screen and (max-width: $breakpoint) {
         display: flex;
         flex-direction: column;

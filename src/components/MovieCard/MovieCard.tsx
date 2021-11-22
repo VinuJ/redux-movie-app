@@ -23,7 +23,7 @@ const MovieCard = (props: Props) => {
   const loadingFlag = useSelector(getLoadingState);
 
   return (
-    <div className="card-item">
+    <div key={data.Title} className="card-item">
       {loadingFlag ? (
         <div className="card-inner"></div>
       ) : (
