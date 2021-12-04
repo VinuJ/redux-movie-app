@@ -13,7 +13,7 @@ interface State {
 
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async (movieText: string = "Mission") => {
+  async (movieText: string = "Hangover") => {
     const response = await MovieApi.get(
       `?s=${movieText}&type=movie&apikey=${APIkey}`
     );
